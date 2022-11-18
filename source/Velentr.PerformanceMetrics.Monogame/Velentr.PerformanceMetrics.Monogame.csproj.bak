@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Velentr.PerformanceMetrics.Monogame</AssemblyName>
+    <RootNamespace>Velentr.PerformanceMetrics</RootNamespace>
+    <Authors>Christian Webber</Authors>
+    <Company>Christian Webber</Company>
+    <RepositoryUrl>https://github.com/vonderborch/Velentr.PerformanceMetrics</RepositoryUrl>
+    <PackageTags></PackageTags>
+    <Description>A library</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0</Version>
+    <FileVersion>1.0.0</FileVersion>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;MONOGAME</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>MONOGAME</DefineConstants>
+    <OutputPath>..\..\release\Monogame\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DefineConstants>MONOGAME</DefineConstants>
+    <OutputPath>..\..\release\Monogame\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <DefineConstants>MONOGAME</DefineConstants>
+    <OutputPath>..\..\release\Monogame\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="..\..\Velentr.PerformanceMetrics\Velentr.PerformanceMetrics.projitems" Label="Shared" />
+</Project>

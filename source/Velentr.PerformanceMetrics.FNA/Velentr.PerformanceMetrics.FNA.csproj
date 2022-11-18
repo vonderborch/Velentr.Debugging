@@ -1,0 +1,67 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Velentr.PerformanceMetrics.FNA</AssemblyName>
+    <RootNamespace>Velentr.PerformanceMetrics</RootNamespace>
+    <Platforms>x64</Platforms>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Christian Webber</Authors>
+    <Company>Christian Webber</Company>
+    <RepositoryUrl>https://github.com/vonderborch/Velentr.PerformanceMetrics</RepositoryUrl>
+    <PackageTags>Velentr, Debugging, Profiling, Performance</PackageTags>
+    <Description>A library containing some useful helpers for code profiling, performance testing, and debugging</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>2.0.2</Version>
+    <FileVersion>2.0.2</FileVersion>
+    <AssemblyVersion>2.0.2</AssemblyVersion>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="..\..\FNA\fnalibs\x64\FAudio.dll" Link="FAudio.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\FNA\fnalibs\x64\FNA3D.dll" Link="FNA3D.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\FNA\fnalibs\x64\libtheorafile.dll" Link="libtheorafile.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\FNA\fnalibs\x64\SDL2.dll" Link="SDL2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Velentr.Core.FNA" Version="2.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\FNA\FNA\FNA.Core.csproj" />
+    <ProjectReference Include="..\Velentr.PerformanceMetrics\Velentr.PerformanceMetrics.csproj" />
+  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DefineConstants>TRACE;FNA</DefineConstants>
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DefineConstants>FNA</DefineConstants>
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>..\..\release\FNA\</OutputPath>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <Import Project="..\Velentr.PerformanceMetrics.Shared\Velentr.PerformanceMetrics.Shared.projitems" Label="Shared" />
+</Project>
